@@ -1,0 +1,23 @@
+.item {
+  height: 200px;
+  display: flex;
+  flex-flow: column;
+}
+
+.container {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.face-data {
+  padding-top: 5px;
+  display: flex;
+  flex-flow: column;
+}
+
+.title {
+  font-weight: bold;
+  padding-top: 10px;
+}
