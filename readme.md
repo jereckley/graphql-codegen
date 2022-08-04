@@ -52,4 +52,11 @@ in App.tsx import new document `import {Get_AnimalsDocument} from "./generated/g
 
 delete the GET_ANIMALS const and update the usage to use imported document
 
+##Use Types
+in frontend folder:
+add the import import { Get_AnimalsDocument, useGet_AnimalsQuery } from "./generated/graphql";
+replace useQuery(...) with useGet_AnimalsQuery()
 
+remove the any types... so (animal: any) (animal)
+
+fix the typing issues

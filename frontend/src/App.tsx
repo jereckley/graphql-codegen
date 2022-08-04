@@ -1,12 +1,10 @@
 import React from "react";
 import "./App.css";
-import {gql, useQuery} from "@apollo/client";
-import {Get_AnimalsDocument} from "./generated/graphql";
-
+import { gql, useQuery } from "@apollo/client";
+import { Get_AnimalsDocument, useGet_AnimalsQuery } from "./generated/graphql";
 
 function App() {
-
-  const { loading, error, data } = useQuery(Get_AnimalsDocument);
+  const { loading, error, data } = useGet_AnimalsQuery();
 
   if (loading) return <p>Loading...</p>;
 
@@ -14,16 +12,30 @@ function App() {
 
   return (
     <div className="container">
-    	{data.animals.map((animal: any) => (
-		<div className="item">
-			<img src={animal.image} style={{maxWidth: "300px", maxHeight: "300px"}}/>
-		<div className="title">{animal.name}</div>
-		<div className="face-data">
-		<div>Nose Description: {animal.face.noseDescription}</div>
-		<div>Number of Eyes: {0 + animal.face.eyes}</div>
-		</div>
-		</div>
-	))}
+      {!!data?.animals &&
+        data.animals.map(
+          (animal) =>
+            !!animal && (
+              <div className="item">
+                <img
+                  src={animal.image}
+                  style={{
+                    maxWidth: "300px",
+                    maxHeight: "300px",
+                  }}
+                />
+                <div className="title">{animal.name}</div>
+                <div className="face-data">
+                  {!!animal.face && (
+                    <div>
+                      <div>Nose Description: {animal.face.noseDescription}</div>
+                      <div>Number of Eyes: {0 + animal.face.eyeballs}</div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )
+        )}
     </div>
   );
 }
