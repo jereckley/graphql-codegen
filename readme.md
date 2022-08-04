@@ -21,14 +21,35 @@ create a new file name .graphqlconfig and add:
 {
   "name": "animals graph",
   "schema": ["schema.graphql"],
+  "documents": "src/**/*.document.graphql"
 }
 
 install any graphql plugin for your editor that supports .graphqlconfig files
 
 ##Add Codegen
-
-
-##Update to use .graphql files
 in frontend folder:
-in the .graphqlconfig file add the following to the object -> "documents": "src/**/*.document.graphql"
+npm install @graphql-codegen/cli
+
+npx graphql-code-generator init
+
+select: (Default) Application built with react
+enter: schema.graphql
+enter: src/**/*.document.graphql
+select: (Default plugins)
+enter: (Default output)
+enter: n (not to generate introspection)
+enter: (Default name)
+enter: codegen (command to run)
+
+npm install
+
+create a file called `app.document.graphql` in the `src` folder
+copy the contents of the gql'' tag into the app.document.graphql
+
+npm run codegen
+
+in App.tsx import new document `import {Get_AnimalsDocument} from "./generated/graphql";`
+
+delete the GET_ANIMALS const and update the usage to use imported document
+
 

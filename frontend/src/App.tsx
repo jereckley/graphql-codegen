@@ -1,39 +1,12 @@
 import React from "react";
 import "./App.css";
 import {gql, useQuery} from "@apollo/client";
+import {Get_AnimalsDocument} from "./generated/graphql";
 
-const GET_ANIMALS = gql`
-  query GET_ANIMALS {
-   animals {
-      ... on Monkey {
-        id
-        __typename
-        name
-        face {
-          noseDescription
-          eyeballs
-        }
-        image
-        type
-      }
-      ... on Bird {
-        id
-        __typename
-        name
-        face {
-          noseDescription
-          eyeballs
-        }
-        image
-        type
-      }
-    }
-  }
-`;
 
 function App() {
 
-  const { loading, error, data } = useQuery(GET_ANIMALS);
+  const { loading, error, data } = useQuery(Get_AnimalsDocument);
 
   if (loading) return <p>Loading...</p>;
 

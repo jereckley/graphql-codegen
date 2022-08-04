@@ -1,0 +1,26 @@
+  query GET_ANIMALS {
+   animals {
+      ... on Monkey {
+        id
+        __typename
+        name
+        face {
+          noseDescription
+          eyeballs
+        }
+	image
+        type
+      }
+      ... on Bird {
+        id
+        __typename
+        name
+        face {
+          noseDescription
+          eyeballs
+        }
+        image
+        type
+      }
+    }
+  }

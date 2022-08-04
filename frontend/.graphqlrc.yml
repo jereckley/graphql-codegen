@@ -1,0 +1,5 @@
+{
+  "name": "animals graph",
+  "schema": ["schema.graphql"],
+  "documents": "src/**/*.document.graphql"
+}
