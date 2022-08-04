@@ -1,0 +1,4 @@
+{
+  "name": "animals graph",
+  "schema": ["schema.graphql"]
+}

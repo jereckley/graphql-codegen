@@ -1,0 +1,34 @@
+type Face {
+  eyeballs: Int!
+  noseDescription: String
+}
+type Monkey implements Animal {
+  id: ID!
+  name: String!
+  face: Face
+  image: String!
+  type: String!
+}
+type Bird implements Animal {
+  id: ID!
+  name: String!
+  face: Face
+  image: String!
+  type: String!
+}
+type Query {
+  animals: [Animal]
+  getAnimalById(id: ID): Animal
+}
+interface Animal {
+  id: ID!
+  name: String!
+  face: Face
+  image: String!
+  type: String!
+}
+"Exposes a URL that specifies the behavior of this scalar."
+directive @specifiedBy(
+    "The URL that specifies the behavior of this scalar."
+    url: String!
+  ) on SCALAR

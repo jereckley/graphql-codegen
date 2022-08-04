@@ -20,6 +20,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "update-schema": "rover graph introspect http://localhost:4545/graphql > schema.graphql",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

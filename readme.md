@@ -14,6 +14,9 @@ npm install -g @apollo/rover
 
 in frontend folder:
 add new command to scripts in package.json: "update-schema": "rover graph introspect http://localhost:4545/graphql > schema.graphql",
+
+npm run update-schema
+
 create a new file name .graphqlconfig and add:
 {
   "name": "animals graph",
