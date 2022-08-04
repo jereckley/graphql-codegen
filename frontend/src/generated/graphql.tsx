@@ -34,7 +34,7 @@ export type Bird = Animal & {
 
 export type Face = {
   __typename?: 'Face';
-  eyeballs: Scalars['Int'];
+  ears: Scalars['Int'];
   noseDescription?: Maybe<Scalars['String']>;
 };
 
@@ -61,7 +61,7 @@ export type QueryGetAnimalByIdArgs = {
 export type Get_AnimalsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Get_AnimalsQuery = { __typename?: 'Query', animals?: Array<{ __typename: 'Bird', id: string, name: string, image: string, type: string, face?: { __typename?: 'Face', noseDescription?: string | null, eyeballs: number } | null } | { __typename: 'Monkey', id: string, name: string, image: string, type: string, face?: { __typename?: 'Face', noseDescription?: string | null, eyeballs: number } | null } | null> | null };
+export type Get_AnimalsQuery = { __typename?: 'Query', animals?: Array<{ __typename: 'Bird', id: string, name: string, image: string, type: string, face?: { __typename?: 'Face', noseDescription?: string | null, ears: number } | null } | { __typename: 'Monkey', id: string, name: string, image: string, type: string, face?: { __typename?: 'Face', noseDescription?: string | null, ears: number } | null } | null> | null };
 
 
 export const Get_AnimalsDocument = gql`
@@ -73,7 +73,7 @@ export const Get_AnimalsDocument = gql`
       name
       face {
         noseDescription
-        eyeballs
+        ears
       }
       image
       type
@@ -84,7 +84,7 @@ export const Get_AnimalsDocument = gql`
       name
       face {
         noseDescription
-        eyeballs
+        ears
       }
       image
       type

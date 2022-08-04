@@ -29,7 +29,7 @@ function App() {
                   {!!animal.face && (
                     <div>
                       <div>Nose Description: {animal.face.noseDescription}</div>
-                      <div>Number of Eyes: {0 + animal.face.eyeballs}</div>
+                      <div>Number of ears: {0 + animal.face.ears}</div>
                     </div>
                   )}
                 </div>

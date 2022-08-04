@@ -60,3 +60,35 @@ replace useQuery(...) with useGet_AnimalsQuery()
 remove the any types... so (animal: any) (animal)
 
 fix the typing issues
+
+##See Fullstack Coolness
+in backend folder:
+index.js line 9 change eyeballs to ears
+
+add this code around line 79
+
+const animalsWithEars = animals.map((animal) => {
+	return {
+		...animal,
+		face: {
+			noseDescription: animal.face.noseDescription,
+			ears: animal.face.eyeballs
+		}
+	}
+})
+
+update the resolver to user animalsWithEars instead of animals
+
+in the frontend:
+npm run update-schema
+npm run codegen
+
+notice codegen informs you or issues in your queries
+
+fix your query
+
+npm run codegen
+
+open App.tsx and notice you have errors... code won't compile
+
+fix typescript issue

@@ -1,5 +1,5 @@
 type Face {
-  eyeballs: Int!
+  ears: Int!
   noseDescription: String
 }
 type Monkey implements Animal {

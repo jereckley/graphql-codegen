@@ -6,7 +6,7 @@ const {ApolloServer, gql} = require("apollo-server");
 const typeDefs = gql`
 
   type Face {
-    eyeballs: Int!
+    ears: Int!
     noseDescription: String 
   }
 	interface Animal {
@@ -76,11 +76,21 @@ const animals = [
     },
 ];
 
+const animalsWithEars = animals.map((animal) => {
+	return {
+		...animal,
+		face: {
+			noseDescription: animal.face.noseDescription,
+			ears: animal.face.eyeballs
+		}
+	}
+})
+
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
     Query: {
-        animals: () => animals,
+        animals: () => animalsWithEars,
     },
     Animal: {
         __resolveType: (animal) => {
